@@ -1,0 +1,16 @@
+customer_id,first_name,last_name,age,gender,city,account_type,account_balance,loan_amount,loan_status,account_open_date
+C001,James,Carter,45,Male,Toronto,Savings,85200.00,0.00,No Loan,2018-03-12
+C002,Priya,Sharma,32,Female,Vancouver,Checking,12400.00,15000.00,Active,2020-07-01
+C003,Mohammed,Ali,55,Male,Calgary,Savings,210500.00,0.00,No Loan,2015-01-20
+C004,Emily,Zhang,28,Female,Toronto,Checking,3200.00,20000.00,Active,2021-11-05
+C005,Daniel,Brown,41,Male,Ottawa,Savings,67800.00,10000.00,Paid Off,2017-06-15
+C006,Aisha,Patel,37,Female,Montreal,Savings,145000.00,0.00,No Loan,2016-09-30
+C007,Lucas,Martin,23,Male,Toronto,Checking,1800.00,5000.00,Active,2023-02-18
+C008,Sophia,Nguyen,50,Female,Vancouver,Savings,98750.00,0.00,No Loan,2014-04-22
+C009,Ethan,Wilson,34,Male,Calgary,Checking,4500.00,30000.00,Active,2019-08-11
+C010,Olivia,Thompson,29,Female,Ottawa,Savings,22100.00,0.00,No Loan,2022-01-09
+C011,Noah,Garcia,47,Male,Toronto,Savings,310000.00,0.00,No Loan,2013-05-17
+C012,Isabella,Kim,31,Female,Montreal,Checking,8900.00,12000.00,Active,2020-10-25
+C013,William,Johnson,60,Male,Vancouver,Savings,450000.00,0.00,No Loan,2010-02-14
+C014,Mia,Davis,26,Female,Toronto,Checking,2100.00,18000.00,Active,2022-06-30
+C015,Benjamin,Miller,38,Male,Calgary,Savings,55300.00,25000.00,Active,2018-12-01
