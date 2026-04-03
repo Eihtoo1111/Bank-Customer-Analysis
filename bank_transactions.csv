@@ -1,0 +1,31 @@
+transaction_id,customer_id,transaction_date,transaction_type,amount,merchant,category
+T001,C001,2024-01-05,Debit,250.00,Superstore,Groceries
+T002,C002,2024-01-07,Debit,1200.00,Best Buy,Electronics
+T003,C003,2024-01-08,Credit,5000.00,Employer,Salary
+T004,C004,2024-01-10,Debit,80.00,Tim Hortons,Food & Drink
+T005,C005,2024-01-12,Debit,450.00,Shell,Gas
+T006,C006,2024-01-15,Credit,3200.00,Employer,Salary
+T007,C007,2024-01-17,Debit,2200.00,Amazon,Online Shopping
+T008,C008,2024-01-18,Credit,8000.00,Investment,Transfer
+T009,C009,2024-01-20,Debit,150.00,Netflix,Subscriptions
+T010,C010,2024-01-22,Debit,320.00,Shoppers,Health
+T011,C001,2024-02-01,Debit,180.00,Loblaws,Groceries
+T012,C002,2024-02-03,Debit,600.00,Rogers,Utilities
+T013,C003,2024-02-05,Credit,5000.00,Employer,Salary
+T014,C011,2024-02-07,Credit,15000.00,Investment,Transfer
+T015,C004,2024-02-09,Debit,95.00,McDonald's,Food & Drink
+T016,C005,2024-02-11,Debit,1100.00,Air Canada,Travel
+T017,C012,2024-02-14,Debit,200.00,Walmart,Groceries
+T018,C013,2024-02-16,Credit,25000.00,Real Estate,Transfer
+T019,C007,2024-02-18,Debit,3800.00,Apple Store,Electronics
+T020,C014,2024-02-20,Debit,70.00,Starbucks,Food & Drink
+T021,C003,2024-03-01,Debit,12000.00,Unknown Vendor,Suspicious
+T022,C008,2024-03-03,Credit,9500.00,Employer,Salary
+T023,C009,2024-03-05,Debit,5500.00,Unknown Vendor,Suspicious
+T024,C011,2024-03-07,Debit,400.00,Sobeys,Groceries
+T025,C015,2024-03-10,Credit,4200.00,Employer,Salary
+T026,C001,2024-03-12,Debit,270.00,Metro,Groceries
+T027,C006,2024-03-14,Credit,3200.00,Employer,Salary
+T028,C013,2024-03-17,Debit,18000.00,Unknown Vendor,Suspicious
+T029,C002,2024-03-19,Debit,340.00,LCBO,Groceries
+T030,C010,2024-03-22,Debit,55.00,Spotify,Subscriptions
