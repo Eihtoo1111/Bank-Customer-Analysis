@@ -1,0 +1,80 @@
+// ============================================================
+// Bank Customer Analysis — DAX measures for Power BI
+// Tables: bank_customers (dimension), bank_transactions (fact)
+// Relationship: bank_customers[customer_id] 1 — * bank_transactions[customer_id]
+// ============================================================
+
+// ---------- Customer KPIs ----------
+Total Customers = DISTINCTCOUNT ( bank_customers[customer_id] )
+
+Total Balance = SUM ( bank_customers[account_balance] )
+
+Avg Balance = AVERAGE ( bank_customers[account_balance] )
+
+Total Active Loans =
+CALCULATE ( SUM ( bank_customers[loan_amount] ), bank_customers[loan_status] = "Active" )
+
+Active Loan Customers =
+CALCULATE ( [Total Customers], bank_customers[loan_status] = "Active" )
+
+// Customers with an active loan and less than $10,000 on deposit
+At-Risk Borrowers =
+CALCULATE (
+    [Total Customers],
+    bank_customers[loan_status] = "Active",
+    bank_customers[account_balance] < 10000
+)
+
+At-Risk Loan Exposure =
+CALCULATE (
+    SUM ( bank_customers[loan_amount] ),
+    bank_customers[loan_status] = "Active",
+    bank_customers[account_balance] < 10000
+)
+
+At-Risk Share of Loans = DIVIDE ( [At-Risk Loan Exposure], [Total Active Loans] )
+
+Loan-to-Balance Ratio = DIVIDE ( [Total Active Loans], [Total Balance] )
+
+// Share of all deposits held by the top 3 customers
+Top 3 Balance Share =
+VAR Top3 = TOPN ( 3, ALL ( bank_customers ), bank_customers[account_balance], DESC )
+RETURN DIVIDE ( SUMX ( Top3, bank_customers[account_balance] ), CALCULATE ( [Total Balance], ALL ( bank_customers ) ) )
+
+// ---------- Transaction KPIs ----------
+Transaction Count = COUNTROWS ( bank_transactions )
+
+Total Credits =
+CALCULATE ( SUM ( bank_transactions[amount] ), bank_transactions[transaction_type] = "Credit" )
+
+Total Debits =
+CALCULATE ( SUM ( bank_transactions[amount] ), bank_transactions[transaction_type] = "Debit" )
+
+Net Flow = [Total Credits] - [Total Debits]
+
+Suspicious Amount =
+CALCULATE ( SUM ( bank_transactions[amount] ), bank_transactions[category] = "Suspicious" )
+
+Suspicious Count =
+CALCULATE ( [Transaction Count], bank_transactions[category] = "Suspicious" )
+
+Suspicious Share of Debits = DIVIDE ( [Suspicious Amount], [Total Debits] )
+
+// Flags any debit over 3x the average debit, regardless of category
+Large Debit Flag Count =
+VAR AvgDebit =
+    CALCULATE ( AVERAGE ( bank_transactions[amount] ), ALL ( bank_transactions ), bank_transactions[transaction_type] = "Debit" )
+RETURN
+    CALCULATE (
+        [Transaction Count],
+        bank_transactions[transaction_type] = "Debit",
+        FILTER ( bank_transactions, bank_transactions[amount] > 3 * AvgDebit )
+    )
+
+// ---------- Calculated column (add to bank_customers) ----------
+// Age Group =
+// SWITCH ( TRUE (),
+//     bank_customers[age] < 30, "Under 30",
+//     bank_customers[age] < 40, "30-39",
+//     bank_customers[age] < 50, "40-49",
+//     "50+" )

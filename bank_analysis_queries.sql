@@ -76,3 +76,24 @@ JOIN bank_customers c ON t.customer_id = c.customer_id
 WHERE t.amount > 10000
   AND t.category = 'Suspicious'
 ORDER BY t.amount DESC;
+
+
+-- ============================================================
+-- QUERY 6: All Suspicious Activity (no amount threshold)
+-- Query 5 only catches amounts > $10,000 and misses T023 ($5,500).
+-- This version flags every Suspicious transaction and adds
+-- the customer's loan exposure for context.
+-- ============================================================
+SELECT
+    t.transaction_id,
+    t.customer_id,
+    c.first_name || ' ' || c.last_name AS full_name,
+    t.transaction_date,
+    t.amount,
+    c.account_balance,
+    c.loan_status,
+    c.loan_amount
+FROM bank_transactions t
+JOIN bank_customers c ON t.customer_id = c.customer_id
+WHERE t.category = 'Suspicious'
+ORDER BY t.amount DESC;

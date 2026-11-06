@@ -1,0 +1,15 @@
+{
+  "name": "Bank Customer Analysis",
+  "dataColors": ["#1F4E79", "#2E86C1", "#5DADE2", "#F39C12", "#C0392B", "#7F8C8D", "#27AE60", "#8E44AD"],
+  "background": "#FFFFFF",
+  "foreground": "#1B2631",
+  "tableAccent": "#1F4E79",
+  "good": "#27AE60",
+  "neutral": "#F39C12",
+  "bad": "#C0392B",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#1B2631" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#566573" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 24, "color": "#1F4E79" }
+  }
+}
